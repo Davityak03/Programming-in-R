@@ -1,8 +1,8 @@
 #apply functions are a set of loop functions in R 
 #the main difference is that apply functions are effecient than for loop
-head(mtcars)
 
 #the dataset that will be used will be the mtcars dataset
+head(mtcars)
 #to apply sum for each column except for cylinder column
 column_sum<-apply(mtcars[,c("mpg","disp","hp","drat","wt")],2,sum)
 print(column_sum)
