@@ -49,4 +49,36 @@ barplot(vis_vec,
         ylab="probability")
 lines(vis_vec,col="red",lwd=2)
 
+#3.Normal Distribution
+#The Normal Distribution (or Gaussian Distribution) is a continuous probability distribution characterized by its bell-shaped curve. It is defined by two parameters: μ (mean): The center of the distribution. σ (standard deviation): The spread or width of the distribution.
+#mean=75 and standard deviation =5
+#dnorm function is used for pdf 
+mean<-75
+sdeviation<-5
+x<-100
+prob<-dnorm(x,mean,sdeviation)P(X=100)
+print(prob)
+
+#for cmf we use pnorm function
+cummulative_prob3<-pnorm(100,mean,sdeviation)#P(X<=100)
+print(cummulative_prob3)
+
+#for visualization
+vis_vec<-dnorm(0:100,mean,sdeviation)
+barplot(vis_vec,
+        names.arg=0:100,
+        col="blue",
+        main="Normal Distribution",
+        xlab="X",
+        ylab="probability")
+
+#4.t-Distribution
+#probability distribution used in statistics, especially in hypothesis testing and when the sample size is small, and the population standard deviation is unknown. 
+#mean=0,standard deviation=1 and 25 degrees of freedom 
+df<-25
+x<-2
+
+
+
+
 
