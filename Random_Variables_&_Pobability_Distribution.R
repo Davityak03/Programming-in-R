@@ -75,10 +75,21 @@ barplot(vis_vec,
 #4.t-Distribution
 #probability distribution used in statistics, especially in hypothesis testing and when the sample size is small, and the population standard deviation is unknown. 
 #mean=0,standard deviation=1 and 25 degrees of freedom 
+#one sided
 df<-25
 x<-2
+prob<-pt(x,df)#P(t>2),df=25
+print(prob)
+pro_dash<-pt(x,df,lower.tail=F)#P(t<=2)
+print(pro_dash)
+pro_dash2<-pt(-2,df,lower.tail=T)
+print(pro_dash2)
 
+#two sided we add both the values(t=2,-2)
+print(pro_dash+pro_dash2)
 
-
+#find the value of t for 95% confidence
+#value of t with 2.5% in each tail
+qt(p=0.025,df=25,lower.tail=T)
 
 
