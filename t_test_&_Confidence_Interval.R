@@ -17,3 +17,28 @@ print(test_mtcars)
 #for 99% confidence interval
 test_mtcars<-t.test(mtcars$mpg,mu=20,alternative="two.sided",conf.level=0.99)
 print(test_mtcars)
+
+#Two sample t test(Indepenedent groups)
+#these are parametric methods appropriate for examining the difference in means for 2 populations
+#these are ways of examining the relationship between numeric outcome variable Y and categorical explanatory variable
+#for eg we ill compare the mean mpg for cars 4 cylinders vs 6 cylinders
+data(mtcars)
+head(mtcars)
+group1<-mtcars$mpg[mtcars$cyl==4]
+group2<-mtcars$mpg[mtcars$cyl==6]
+boxplot(mtcars$mpg~mtcars$cyl)
+#t test
+t_test_result<-t.test(group1,group2,mu=0,alternative="two.sided",conf.level=0.95 ,var.equal=FALSE,paired=F)#assume non eqqual variance
+print(t_test_result)
+
+#if variance equals to true
+t_test_result<-t.test(group1,group2,mu=0,alternative="two.sided",conf.level=0.95 ,var.equal=TRUE,paired=F)#assume non eqqual variance
+print(t_test_result)
+
+#Levenes test
+var(group1)
+var(group2)
+#Ho:population variances are equal
+library(car)
+leveneTest(group1,group2)#possible only if number of elements are same in the both groups 
+
