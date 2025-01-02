@@ -42,3 +42,20 @@ var(group2)
 library(car)
 leveneTest(group1,group2)#possible only if number of elements are same in the both groups 
 
+#paired t test
+#A paired t-test is used to compare the means of two related groups. It is often applied when you have measurements from the same group at two different time points or conditions.
+data(mtcars)
+
+mtcars_mpg_4cyl<-mtcars$mpg[mtcars$cyl==4]
+mtcars_mpg_6cyl<-mtcars$mpg[mtcars$cyl==6]
+
+length(mtcars_mpg_4cyl)
+length(mtcars_mpg_6cyl)
+
+mtcars_mpg_4cyl<-sample(mtcars_mpg_4cyl,length(mtcars_mpg_6cyl))
+length(mtcars_mpg_4cyl)
+
+#performing the paired t-test
+t_test_result<-t.test(mtcars_mpg_4cyl,mtcars_mpg_6cyl,paired=TRUE)
+
+print(t_test_result)
