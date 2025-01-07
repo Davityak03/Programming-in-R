@@ -22,3 +22,4 @@ cor.test(mtcars$hp,mtcars$mpg,method="pearson")
 cov(mtcars$mpg,mtcars$hp)
 
 pairs(mtcars)
+
