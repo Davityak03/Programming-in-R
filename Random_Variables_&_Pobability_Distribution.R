@@ -9,7 +9,7 @@ p<-1/6
 k<-5#(number of success)
 
 prob<-dbinom(k,size=n,prob=p)#P(X=5)
-print(prob)
+print(prob)#
 #to compute P(X=k) for multiple values of k
 prob_vector<-dbinom(0:20,size=n,prob=p)
 print(prob_vector)
